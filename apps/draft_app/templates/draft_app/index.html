@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>NFL Fantasy Draftkit</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'draft_app/css/style.css' %}">
+    </head>
+    <body>
+        <div id="header">
+            <h1>NFL Draftkit</h1>
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'wrong_email warning' %}
+                        <p class="red">{{message}}</p>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'wrong_password warning' %}
+                        <p class="red">{{message}}</p>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if 'id' not in request.session %}
+                <form action="/login" method="POST">
+                    {%csrf_token%}
+                    <label for="email">Email:</label>
+                    <input type="text" name="email">
+                    <label for="password">Password:</label>
+                    <input type="password" name="lpassword">
+                    <button type="submit">Log in</button>
+                </form>
+                <a href="/new">Create an Account</a>
+            {% endif %}
+        </div>
+        <div id="nav">
+            <ul>
+                <li><a href="/home"><button>Home</button> </a></li>
+                <li class="team_dropdown">
+                    <button class="dropbtn">Team &#9662;</button>
+                    <div class="dropdown-content">
+                        {% for key, conf in conference.items %}
+                            <div id="{{key}}">
+                                <h3>{{key}}</h3>
+                                {% for key, div in conf.items %}
+                                <div class="division">
+                                    <p>{{key}}</p>
+                                    {% for team in div %}
+                                        <a href="/team/{{team.id}}">{{team.name}}</a>
+                                    {% endfor %}
+                                </div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <button class="dropbtn">Position &#9662;</button>
+                    <div class="dropdown-content">
+                        <a href="/position/QB">Quarterback</a>
+                        <a href="/position/RB">Runningback</a>
+                        <a href="/position/WR">Wide Receiver</a>
+                        <a href="/position/TE">Tight End</a>
+                        <a href="/position/DST">D/ST</a>
+                        <a href="/position/K">Kicker</a>
+                    </div>
+                </li>
+                <li><a href="#"><button>News</button> </a></li>
+                {% if 'id' in request.session %}
+                    <li><a href="/user/{{user.id}}/lineup"><button>My Team</button></a></li>
+                {% endif %}
+                </ul>
+            {% if 'id' in request.session %}
+                <ul id="user">
+                    <li><a href="/user/{{user.id}}"><button>Welcome {{user.first_name}}</button></a></li>
+                    <li><a href="/logout"><button>Log out</button></a></li>
+                </ul>
+            {% endif %}
+        </div>
+        <div id="main">
+            <table>
+                <thead>
+                    <th>Player</th>
+                    <th>POS</th>
+                    <th>POS Rank</th>
+                    <th>Team</th>
+                    <th>Depth</th>
+                    <th>Bye</th>
+                </thead>
+                {% for i in rank %}
+                    <tr>
+                        <td>{{i.first_name}} {{i.last_name}}</td>
+                        <td>{{i.position}}</td>
+                        <td>{{i.pos_rank}}</td>
+                        <td>{{i.team.name}}</td>
+                        <td>{{i.depth}}</td>
+                        <td>{{i.team.bye}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>

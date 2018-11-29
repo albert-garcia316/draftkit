@@ -1,0 +1,36 @@
+body {
+    text-align: center;
+}
+.red {
+    color: red;
+}
+div {
+    display: inline-block;
+    vertical-align: top;
+}
+#register {
+    margin-right: 60px;
+}
+button {
+    margin-top: 20px;
+    text-align: left;
+    color: white;
+    background-color: green;
+    font-size: 26px;
+    border-radius: 10px;
+    border: 1px solid green;
+}
+form {
+    display: inline-block;
+}
+td {
+    padding-top: 20px;
+    font-size: 30px;
+}
+input {
+    font-size: 26px;
+}
+a {
+    text-align: left;
+    display: block;
+}

@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>Register</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'draft_app/css/reg.css' %}">
+    </head>
+    <body>
+        <a href="/home"><button>Home</button></a>
+        <h1>Register Here!</h1>
+        <form action="/register" method="POST">
+            {%csrf_token%}
+            <table>
+                <tr><td>First Name:</td></tr>
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'fname_length error' or message.tags == 'fname_alpha error' %}
+                            <tr><td class="red">{{message}}</td></tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <tr><td><input type="text" name="first_name" value="{{request.session.fname}}"></td></tr>
+                <tr><td>Last Name:</td></tr>
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'lname_length error' or message.tags == 'lname_alpha error' %}
+                            <tr><td class="red">{{message}}</td></tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <tr><td><input type="text" name="last_name" value="{{request.session.lname}}"></td></tr>
+                <tr><td>Date of Birth:</td></tr>
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'dob error' or message.tags == 'dob_length error' %}
+                            <tr><td class="red">{{message}}</td></tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <tr><td><input type="date" name="dob" value="{{request.session.dob}}"></td></tr>
+                <tr><td>Email:</td></tr>
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'email_length error' or message.tags == 'valid_email error' or message.tags == 'email_used error' %}
+                            <tr><td class="red">{{message}}</td></tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <tr><td><input type="text" name="email" value="{{request.session.email}}"></td></tr>
+                <tr><td>Password:</td></tr>
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'password error' %}
+                            <tr><td class="red">{{message}}</td></tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <tr><td><input type="password" name="password"></td></tr>
+                <tr><td>Confirm password:</td></tr>
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'confirm error' %}
+                            <tr><td class="red">{{message}}</td></tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <tr><td><input type="password" name="confirm_password"></td></tr>
+            </table>
+            <button type="submit">Register</button>
+        </form>
+    </body>
+</html>

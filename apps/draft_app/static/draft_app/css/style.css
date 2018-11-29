@@ -1,0 +1,179 @@
+#header {
+    background-color: rgba(0, 0, 255, 0.769);
+    height: 152px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+.red {
+    color: red;
+    text-align: right;
+    margin: 0px 20px 0px 0px;
+    font-size: 18px;
+}
+#header a {
+    color: white;
+    text-align: right;
+    margin: 10px 19px 10px 89%;
+}
+label {
+    color: white;
+    font-size: 16px;
+}
+form {
+    text-align: right;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+form button {
+    background-color: white;
+    color: black;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+form button:hover {
+    background-color: rgb(133, 122, 122);
+}
+input {
+    font-size: 16px;
+}
+#nav {
+    background-color: rgb(66, 65, 65);
+    height: 48px;
+}
+h1 {
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    margin: 1px;
+}
+ul {
+    list-style: none;
+    overflow: hidden;
+    font-family: Arial;
+    margin: 0px;
+    display: inline-block;
+    height: 50px;
+    padding-left: 10px;
+}
+#user {
+    margin-left: 45%;
+}
+li {
+    display: inline-block;
+    height: 50px;
+}
+ul a {
+    text-decoration: none;
+    color: black;
+}
+ul a:hover {
+    background-color: rgb(133, 122, 122);
+}
+button {
+    font-size: 16px; 
+    border: none;
+    outline: none;
+    color: lightgrey;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+}
+/* Dropdown button */
+.dropdown .dropbtn {
+    font-size: 16px; 
+    border: none;
+    outline: none;
+    color: lightgray;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.dropdown:hover .dropbtn {
+    background-color: rgb(133, 122, 122);
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.division {
+    display: inline-block;
+    width: 220px;
+}
+
+/* Show the dropdown menu on hover */
+.team_dropdown:hover .dropdown-content {
+    display: block;
+}
+.team_dropdown:hover .dropbtn {
+    background-color: rgb(133, 122, 122);
+}
+#AFC {
+    /* background-color: rgba(255, 0, 0, 0.358); */
+    width: 450px;
+    display: inline-block;
+    padding: 10px;
+    margin-left: -2px;
+    border-left: 2px solid black;
+}
+#NFC {
+    /* background-color: rgba(0, 0, 255, 0.358); */
+    width: 450px;
+    display: inline-block;
+    padding: 10px;
+    border-right: 2px solid black;
+    margin-right: -3px;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+td, th {
+    border: 1px solid black;
+    font-size: 24px;
+    padding: 5px 10px 5px 10px;
+}
+tr:nth-child(even) {
+    background-color: #cdcbcb;
+}
+#main {
+    text-align: center;
+}
+#user_lineup {
+    margin-left: 50%;
+}
